@@ -4,6 +4,12 @@ import re
 from time import gmtime, strftime
 import signal
 
+
+# For each url in file_in make asynchronous call (->: output to function from function at previous line):
+# _fetch: try to connect to url, if sucess return html as text, otherwise error message
+# -> _parse: if text received, apply regular expression    
+# -> _write: write result to file_out
+
 class AccessUrl():
     def __init__(self, loop,file_in,file_out):
         self.loop = loop
